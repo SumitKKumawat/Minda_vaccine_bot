@@ -3,14 +3,16 @@ import json
 import time
 import datetime
 from requests import sessions
-from flask import Flask
 
-app = Flask(__name__)
+
+proxy = {
+    "https": "https://14.140.131.82:3128",
+    "http": "https://14.140.131.82:3128"}
+#response=requests.get('https://httpbin.org/ip', proxies=proxy)
 
 # faking chrome browser
 browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
 
-@app.route('/')
 def main():
     while(1):
         #if datetime.datetime.now().hour==9 and datetime.datetime.now().minute==1 and datetime.datetime.now().second>1 and datetime.datetime.now().second<5:
@@ -19,7 +21,7 @@ def main():
         for i in range(532,533):
             i=str(i)
             x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + datetime.date.today().strftime('%d-%m-%Y')   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
-            data=requests.get(x,headers=browser_header)
+            data=requests.get(x,headers=browser_header,proxies=proxy)
             results=json.loads(data.text)
             print(x)
             #print(results)
@@ -46,7 +48,6 @@ def main():
 
 
 if __name__ == '__main__':
-    app.run()
-
-    #main()
+    #app.run()
+    main()
 
