@@ -5,9 +5,12 @@ import datetime
 from requests import sessions
 
 
+#proxy = {
+#    "https": "https://14.140.131.82:3128",
+#    "http": "https://14.140.131.82:3128"}
 proxy = {
-    "https": "https://14.140.131.82:3128",
-    "http": "https://14.140.131.82:3128"}
+    "https": "14.140.131.82:3128",
+    "http": "14.140.131.82:3128"}
 #response=requests.get('https://httpbin.org/ip', proxies=proxy)
 
 # faking chrome browser
