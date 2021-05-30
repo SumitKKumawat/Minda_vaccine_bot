@@ -30,11 +30,12 @@ while(1):
                     parse_data=parse_data.replace(",","\n")
                     nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
                     requests.get(nd_url)
-                    y=requests.get(nd_url)
+                    parse_data=""
+                    #y=requests.get(nd_url)
                     #time.sleep(50)
-    print("while loop")
     #time.sleep(4)
 
 
-
+if __name__ == '__main__':
+    main()
 
