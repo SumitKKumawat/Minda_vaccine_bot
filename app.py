@@ -4,6 +4,10 @@ import time
 import datetime
 from requests import sessions
 
+minda=""
+nawa=""
+devli=""
+maroth=""
 
 proxy = {
     "https": "https://14.140.131.82:3128",
