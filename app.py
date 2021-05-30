@@ -17,7 +17,10 @@ def main():
             x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + datetime.date.today().strftime('%d-%m-%Y')   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
             data=requests.get(x,headers=headers)
             results=json.loads(data.text)
+            print(results)
+            print("-----------------------------------------------")
             count=results["sessions"]
+            #count=results
             if len(count)>0:
                 for session in count:
                     msg=[]
