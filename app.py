@@ -4,6 +4,7 @@ import time
 import datetime
 from requests import sessions
 
+
 proxy = {
     "https": "https://14.140.131.82:3128",
     "http": "https://14.140.131.82:3128"}
@@ -41,8 +42,10 @@ def main():
                     msg.append({"district_name":session["district_name"],"centre_name":session["name"],"centre_address":session["address"],"vaccine":session["vaccine"],"fee":session["fee"],"availability":session["available_capacity"],"minage":session["min_age_limit"],"date":session["date"],"slots":session["slots"]})
                     print(msg)
                     #time.sleep(1)
-                    if session["available_capacity"]!=0 and ("MINDA" in session["name"].upper() or "DEVLI KALLAN" in session["name"].upper() or "CHC NAWA" in session["name"].upper() or "MAROTH" in session["name"].upper()):
+                    #if session["available_capacity"]!=0 and ("MINDA" in session["name"].upper() or "DEVLI KALLAN" in session["name"].upper() or "CHC NAWA" in session["name"].upper() or "MAROTH" in session["name"].upper()):
+                    if "MINDA" in session["name"].upper() and minda!=msg:
                         #print("yes yes yes...........")
+                        minda=msg
                         parse_data=json.dumps(msg)
                         parse_data=parse_data.replace("{","")
                         parse_data=parse_data.replace("}","\n\n")
@@ -50,13 +53,52 @@ def main():
                         parse_data=parse_data.replace("]","")
                         parse_data=parse_data.replace(",","\n")
                         nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
-                        time.sleep(1)
                         requests.get(nd_url)
-                        time.sleep(1)
                         print(requests.get(nd_url))
                         #print(parse_data)
                         parse_data=""
                         #time.sleep(10)
+
+                    elif "DEVLI KALLAN" in session["name"].upper() and devli!=msg:
+                        devli=msg
+                        parse_data=json.dumps(msg)
+                        parse_data=parse_data.replace("{","")
+                        parse_data=parse_data.replace("}","\n\n")
+                        parse_data=parse_data.replace("[","")
+                        parse_data=parse_data.replace("]","")
+                        parse_data=parse_data.replace(",","\n")
+                        nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
+                        requests.get(nd_url)
+                        print(requests.get(nd_url))
+                        parse_data=""
+
+                    elif "CHC NAWA" in session["name"].upper() and nawa!=msg:
+                        nawa=msg
+                        parse_data=json.dumps(msg)
+                        parse_data=parse_data.replace("{","")
+                        parse_data=parse_data.replace("}","\n\n")
+                        parse_data=parse_data.replace("[","")
+                        parse_data=parse_data.replace("]","")
+                        parse_data=parse_data.replace(",","\n")
+                        nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
+                        requests.get(nd_url)
+                        print(requests.get(nd_url))
+                        parse_data=""
+                        #session["available_capacity"]!=0 and
+
+                    elif "MAROTH" in session["name"].upper() and maroth!=msg:
+                        maroth=msg
+                        parse_data=json.dumps(msg)
+                        parse_data=parse_data.replace("{","")
+                        parse_data=parse_data.replace("}","\n\n")
+                        parse_data=parse_data.replace("[","")
+                        parse_data=parse_data.replace("]","")
+                        parse_data=parse_data.replace(",","\n")
+                        nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
+                        requests.get(nd_url)
+                        print(requests.get(nd_url))
+                        parse_data=""
+
         #time.sleep(4)
 
 
