@@ -3,10 +3,14 @@ import json
 import time
 import datetime
 from requests import sessions
+from flask import Flask
+
+app = Flask(__name__)
 
 # faking chrome browser
 browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
 
+@app.route('/')
 def main():
     while(1):
         #if datetime.datetime.now().hour==9 and datetime.datetime.now().minute==1 and datetime.datetime.now().second>1 and datetime.datetime.now().second<5:
@@ -18,7 +22,7 @@ def main():
             data=requests.get(x,headers=browser_header)
             results=json.loads(data.text)
             print(x)
-            print(results)
+            #print(results)
             print("-----------------------------------------------")
             count=results["sessions"]
             #count=results
@@ -42,5 +46,7 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    app.run()
+
+    #main()
 
