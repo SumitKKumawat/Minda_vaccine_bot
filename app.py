@@ -51,8 +51,9 @@ def main():
                         parse_data=parse_data.replace("]","")
                         parse_data=parse_data.replace(",","\n")
                         nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
+                        time.sleep(1)
                         requests.get(nd_url)
-                        
+                        time.sleep(1)
                         print(requests.get(nd_url))
                         #print(parse_data)
                         parse_data=""
