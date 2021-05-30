@@ -8,8 +8,6 @@ from requests import sessions
 proxy = {
     "https": "https://14.140.131.82:3128",
     "http": "https://14.140.131.82:3128"}
-
-
 #proxy = {
 #    "https": "14.140.131.82:3128",
 #    "http": "14.140.131.82:3128"}
@@ -22,9 +20,9 @@ def main():
     while(1):
         if datetime.datetime.now().hour==9 and datetime.datetime.now().minute==1 and datetime.datetime.now().second>1 and datetime.datetime.now().second<5:
             welcome="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text=Welcome, Developed by:- Sumit K Kumawat"
-            requests.get(welcome)
+            requests.get(welcome,proxies=proxy)
         for i in range(532,533):
-            i=str(i)
+            i=str(i)    
             x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + datetime.date.today().strftime('%d-%m-%Y')   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
             data=requests.get(x,headers=browser_header,proxies=proxy)
             #data=requests.get(x,headers=browser_header)
@@ -44,7 +42,7 @@ def main():
                         parse_data=parse_data.replace("]","")
                         parse_data=parse_data.replace(",","\n")
                         nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
-                        requests.get(nd_url)
+                        requests.get(nd_url,proxies=proxy)
                         parse_data=""
                         #y=requests.get(nd_url)
                         #time.sleep(50)
