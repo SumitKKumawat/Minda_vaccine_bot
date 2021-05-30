@@ -5,7 +5,7 @@ import datetime
 from requests import sessions
 
 # faking chrome browser
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
+browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
 
 def main():
     while(1):
@@ -15,8 +15,9 @@ def main():
         for i in range(532,533):
             i=str(i)
             x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + datetime.date.today().strftime('%d-%m-%Y')   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
-            data=requests.get(x,headers=headers)
+            data=requests.get(x,headers=browser_header)
             results=json.loads(data.text)
+            print(x)
             print(results)
             print("-----------------------------------------------")
             count=results["sessions"]
