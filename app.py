@@ -42,7 +42,7 @@ def main():
                     msg.append({"district_name":session["district_name"],"centre_name":session["name"],"centre_address":session["address"],"vaccine":session["vaccine"],"fee":session["fee"],"availability":session["available_capacity"],"minage":session["min_age_limit"],"date":session["date"],"slots":session["slots"]})
                     print(msg)
                     #time.sleep(1)
-                    if session["available_capacity"]!=0 and ("MINDA" in session["name"].upper() or "DEVLI KALLAN" in session["name"].upper() or "NAWA" in session["name"].upper() or "MAROTH" in session["name"].upper()):
+                    if session["available_capacity"]!=0 and ("MINDA" in session["name"].upper() or "DEVLI KALLAN" in session["name"].upper() or " NAWA" in session["name"].upper() or "MAROTH" in session["name"].upper()):
                         #print("yes yes yes...........")
                         parse_data=json.dumps(msg)
                         parse_data=parse_data.replace("{","")
