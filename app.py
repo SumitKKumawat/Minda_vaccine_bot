@@ -20,21 +20,30 @@ def main():
     while(1):
         if datetime.datetime.now().hour==9 and datetime.datetime.now().minute==1 and datetime.datetime.now().second>1 and datetime.datetime.now().second<5:
             welcome="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text=Welcome, Developed by:- Sumit K Kumawat"
-            requests.get(welcome)
+            requests.get(welcome,headers=browser_header,proxies=proxy)
         for i in range(532,533):
-            i=str(i)    
-            x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + datetime.date.today().strftime('%d-%m-%Y')   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
+            i=str(i)
+            tme0=datetime.date.today()
+            tme1=datetime.timedelta(days=1)
+            tmr=tme0+tme1
+            x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + tmr.strftime('%d-%m-%Y')   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
             data=requests.get(x,headers=browser_header,proxies=proxy)
             #data=requests.get(x,headers=browser_header)
             results=json.loads(data.text)
             print(x)
             print("-----------------------------------------------")
             count=results["sessions"]
+            #print(len(count))
             if len(count)>0:
+                #print(len(count))
                 for session in count:
+                    #print(session)
                     msg=[]
                     msg.append({"district_name":session["district_name"],"centre_name":session["name"],"centre_address":session["address"],"vaccine":session["vaccine"],"fee":session["fee"],"availability":session["available_capacity"],"minage":session["min_age_limit"],"date":session["date"],"slots":session["slots"]})
+                    print(msg)
+                    #time.sleep(1)
                     if session["available_capacity"]!=0 and ("MINDA" in session["name"].upper() or "DEVLI KALLAN" in session["name"].upper() or "NAWA" in session["name"].upper() or "MAROTH" in session["name"].upper()):
+                        #print("yes yes yes...........")
                         parse_data=json.dumps(msg)
                         parse_data=parse_data.replace("{","")
                         parse_data=parse_data.replace("}","\n\n")
@@ -43,9 +52,11 @@ def main():
                         parse_data=parse_data.replace(",","\n")
                         nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
                         requests.get(nd_url)
+                        
+                        print(requests.get(nd_url))
+                        #print(parse_data)
                         parse_data=""
-                        #y=requests.get(nd_url)
-                        #time.sleep(50)
+                        #time.sleep(10)
         #time.sleep(4)
 
 
