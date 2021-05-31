@@ -43,6 +43,7 @@ def main():
         tme0=datetime.date.today()
 
         if n_times=="" or n_times==0:
+            n_times=0
             tme1=datetime.timedelta(days=n_times)
             n_times=1
         elif n_times==1:
