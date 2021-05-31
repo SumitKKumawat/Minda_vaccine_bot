@@ -5,16 +5,16 @@ import datetime
 from requests import sessions
 
 
-proxy = {
-    "https": "https://14.140.131.82:3128",
-    "http": "https://14.140.131.82:3128"}
+#roxy = {
+#    "https": "https://14.140.131.82:3128",
+#    "http": "https://14.140.131.82:3128"}
 #proxy = {
 #    "https": "14.140.131.82:3128",
 #    "http": "14.140.131.82:3128"}
 #response=requests.get('https://httpbin.org/ip', proxies=proxy)
 
 # faking chrome browser
-browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
+#browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
 
 def main():
     minda0=""
@@ -38,6 +38,9 @@ def main():
     maroth3=""
     maroth4=""
     n_times=""
+    proxy = {
+    "https": "https://14.140.131.82:3128",
+    "http": "https://14.140.131.82:3128"}
     browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
     while(1):
         print("loop-main")
@@ -71,8 +74,8 @@ def main():
             tmr=tmr.strftime('%d-%m-%Y')
             print(n_times,tmr)
             x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + tmr   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
-            #data=requests.get(x,headers=browser_header,proxies=proxy)
-            data=requests.get(x,headers=browser_header)
+            data=requests.get(x,headers=browser_header,proxies=proxy)
+            #data=requests.get(x,headers=browser_header)
             results=json.loads(data.text)
             #print(x)
             #print("-----------------------------------------------")
