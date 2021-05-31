@@ -111,10 +111,12 @@ def main():
                         parse_data=parse_data.replace(",","\n")
                         nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
                         requests.get(nd_url)
-                        print(requests.get(nd_url))
+                        #print(requests.get(nd_url))
+                        #print(n_times,"\n--------\n",minda0,"\n---------\n",minda1,"\n----------\n",minda2,"\n----------\n",minda3,"\n-----------\n",msg)
+                        #time.sleep(10)
                         #print(parse_data)
                         parse_data=""
-                        #time.sleep(10)
+                        time.sleep(1)
 
                     elif "DEVLI KALLAN" in session["name"].upper() and ((devli0!=msg and n_times==1) or (devli1!=msg and n_times==2) or (devli2!=msg and n_times==3) or (devli3!=msg and n_times==4) or (devli4!=msg and n_times==0)):
                         if n_times==1:
@@ -136,8 +138,12 @@ def main():
                         parse_data=parse_data.replace(",","\n")
                         nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
                         requests.get(nd_url)
-                        print(requests.get(nd_url))
+                        #print(requests.get(nd_url))
+                        #print(n_times,"\n--------\n",devli0,"\n---------\n",devli1,"\n----------\n",devli2,"\n----------\n",devli3,"\n-----------\n",msg)
+                        #time.sleep(10)
+                        #print(parse_data)
                         parse_data=""
+                        time.sleep(1)
 
                     elif "CHC NAWA" in session["name"].upper() and ((nawa0!=msg and n_times==1) or (nawa1!=msg and n_times==2) or (nawa2!=msg and n_times==3) or (nawa3!=msg and n_times==4) or (nawa4!=msg and n_times==0)):
                         if n_times==1:
@@ -158,9 +164,12 @@ def main():
                         parse_data=parse_data.replace(",","\n")
                         nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
                         requests.get(nd_url)
-                        print(requests.get(nd_url))
+                        #print(requests.get(nd_url))
+                        #print(n_times,"\n--------\n",nawa0,"\n---------\n",nawa1,"\n----------\n",nawa2,"\n----------\n",nawa3,"\n-----------\n",msg)
+                        #time.sleep(10)
+                        #print(parse_data)
                         parse_data=""
-                        #session["available_capacity"]!=0 and
+                        time.sleep(1)
 
                     elif "MAROTH" in session["name"].upper() and ((maroth0!=msg and n_times==1) or (maroth1!=msg and n_times==2) or (maroth2!=msg and n_times==3) or (maroth3!=msg and n_times==4) or (maroth4!=msg and n_times==0)):
                         if n_times==1:
@@ -181,8 +190,12 @@ def main():
                         parse_data=parse_data.replace(",","\n")
                         nd_url="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text= "+parse_data
                         requests.get(nd_url)
-                        print(requests.get(nd_url))
+                        #print(requests.get(nd_url))
+                        #print(n_times,"\n--------\n",maroth0,"\n---------\n",maroth1,"\n----------\n",maroth2,"\n----------\n",maroth3,"\n-----------\n",msg)
+                        #time.sleep(10)
+                        #print(parse_data)
                         parse_data=""
+                        time.sleep(1)
 
         #time.sleep(4)
 
