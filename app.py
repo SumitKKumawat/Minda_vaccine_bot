@@ -40,6 +40,7 @@ def main():
     n_times=""
 
     while(1):
+        print("loop-main")
         tme0=datetime.date.today()
 
         if n_times=="" or n_times==0:
@@ -68,9 +69,10 @@ def main():
             #tme1=datetime.timedelta(days=1)
             tmr=tme0+tme1
             tmr=tmr.strftime('%d-%m-%Y')
+            print(n_times,tmr)
             x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + tmr   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
-            data=requests.get(x,headers=browser_header,proxies=proxy)
-            #data=requests.get(x,headers=browser_header)
+            #data=requests.get(x,headers=browser_header,proxies=proxy)
+            data=requests.get(x,headers=browser_header)
             results=json.loads(data.text)
             #print(x)
             #print("-----------------------------------------------")
