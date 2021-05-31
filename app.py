@@ -61,7 +61,7 @@ def main():
 
         if datetime.datetime.now().hour==9 and datetime.datetime.now().minute==1 and datetime.datetime.now().second>1 and datetime.datetime.now().second<20:
             welcome="https://api.telegram.org/bot1825518407:AAGvVNzW1QgLmlJ8fRuSCl1yuM63q7PBgx0/sendMessage?chat_id=-1001288829686&text=Welcome, Developed by:- Sumit K Kumawat"
-            requests.get(welcome,headers=browser_header,proxies=proxy)
+            requests.get(welcome)
         for i in range(532,533):
             i=str(i)
             #tme0=datetime.date.today()
