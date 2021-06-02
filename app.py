@@ -43,8 +43,8 @@ def main():
     maroth4=""
     n_times=""
     proxy = {
-    "https": "https://14.140.131.82:3128",
-    "http": "https://14.140.131.82:3128"}
+    "https": "https://117.239.107.51:3128",
+    "http": "https://117.239.107.51:3128"}
     browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
     while(1):
         print("loop-main")
