@@ -90,7 +90,8 @@ def main():
                 for session in count:
                     #print(session)
                     msg=[]
-                    msg.append({"district_name":session["district_name"],"centre_name":session["name"],"centre_address":session["address"],"vaccine":session["vaccine"],"fee":session["fee"],"availability":session["available_capacity"],"minage":session["min_age_limit"],"date":session["date"],"slots":session["slots"]})
+                    #msg.append({"district_name":session["district_name"],"centre_name":session["name"],"centre_address":session["address"],"vaccine":session["vaccine"],"fee":session["fee"],"availability":session["available_capacity"],"minage":session["min_age_limit"],"date":session["date"],"slots":session["slots"]})
+                    msg.append({"centre_name":session["name"],"pincode":session["pincode"],"vaccine":session["vaccine"],"fee":session["fee"],"Total Dose":session["available_capacity"],"Dose_1":session["available_capacity_dose1"],"Dose_2":session["available_capacity_dose2"],"min_age":session["min_age_limit"],"date":session["date"]})
                     #print(msg)
                     #time.sleep(1)
                     #if session["available_capacity"]!=0 and ("MINDA" in session["name"].upper() or "DEVLI KALLAN" in session["name"].upper() or "CHC NAWA" in session["name"].upper() or "MAROTH" in session["name"].upper()):
