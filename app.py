@@ -12,6 +12,9 @@ from requests import sessions
 #    "https": "14.140.131.82:3128",
 #    "http": "14.140.131.82:3128"}
 
+# 103.52.211.130:80
+# 136.233.122.205:80
+
 #proxy = {
 #    "https": "https://117.239.107.51:3128",
 #    "http": "https://117.239.107.51:3128"}
@@ -42,9 +45,18 @@ def main():
     maroth3=""
     maroth4=""
     n_times=""
-    proxy = {
-    "https": "https://117.239.107.51:3128",
-    "http": "https://117.239.107.51:3128"}
+    proxy_1 = {
+    "https": "https://136.233.122.205:80",
+    "http": "https://136.233.122.205:80"}
+
+    proxy_2 = {
+    "https": "https://122.186.181.124:80",
+    "http": "https://122.186.181.124:80"}
+
+    proxy_3 = {
+    "https": "https://14.140.131.82:3128",
+    "http": "https://14.140.131.82:3128"}
+
     browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
     while(1):
         print("loop-main")
@@ -78,7 +90,17 @@ def main():
             tmr=tmr.strftime('%d-%m-%Y')
             print(n_times,tmr)
             x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + tmr   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
-            data=requests.get(x,headers=browser_header,proxies=proxy)
+            try:
+                data=requests.get(x,headers=browser_header,proxies=proxy_1)
+            except:
+                try:
+                    data=requests.get(x,headers=browser_header,proxies=proxy_2)
+                except:
+                    try:
+                        data=requests.get(x,headers=browser_header,proxies=proxy_3)
+                    except:
+                        pass
+
             #data=requests.get(x,headers=browser_header)
             results=json.loads(data.text)
             #print(x)
