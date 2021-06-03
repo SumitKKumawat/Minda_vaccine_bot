@@ -93,12 +93,15 @@ def main():
             try:
                 data=requests.get(x,headers=browser_header,proxies=proxy_1)
             except:
+                print("error-Proxy_1")
                 try:
                     data=requests.get(x,headers=browser_header,proxies=proxy_2)
                 except:
+                    print("error-Proxy_2")
                     try:
                         data=requests.get(x,headers=browser_header,proxies=proxy_3)
                     except:
+                        print("error-Proxy_3")
                         pass
 
             #data=requests.get(x,headers=browser_header)
