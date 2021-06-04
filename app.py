@@ -59,8 +59,9 @@ def main():
     "http": "https://14.140.131.82:3128"}
 
     browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
+    run_times=0
     while(1):
-        #print("loop-main")
+        run_times=run_times+1
         IST = pytz.timezone('Asia/Kolkata')
         india_time=datetime.datetime.now(IST).strftime('%m:%d:%Y %H:%M:%S')
         tme0=datetime.date.today()
@@ -91,7 +92,7 @@ def main():
             #tme1=datetime.timedelta(days=1)
             tmr=tme0+tme1
             tmr=tmr.strftime('%d-%m-%Y')
-            print(n_times,tmr)
+            print(n_times,tmr,run_times)
             x="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+i+"&date=" + tmr   #"29-05-2021" datetime.date.today().strftime('%d-%m-%Y')
             try:
                 data=requests.get(x,headers=browser_header,proxies=proxy_1)
