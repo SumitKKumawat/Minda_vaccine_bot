@@ -3,6 +3,7 @@ import json
 import time
 import datetime
 from requests import sessions
+import pytz
 
 
 #proxy = {
@@ -59,7 +60,9 @@ def main():
 
     browser_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
     while(1):
-        print("loop-main")
+        #print("loop-main")
+        IST = pytz.timezone('Asia/Kolkata')
+        india_time=datetime.datetime.now(IST).strftime('%m:%d:%Y %H:%M:%S')
         tme0=datetime.date.today()
 
         if n_times=="" or n_times==0:
@@ -93,15 +96,15 @@ def main():
             try:
                 data=requests.get(x,headers=browser_header,proxies=proxy_1)
             except:
-                print("error-Proxy_1")
+                print("error-Proxy_1",india_time)
                 try:
                     data=requests.get(x,headers=browser_header,proxies=proxy_2)
                 except:
-                    print("error-Proxy_2")
+                    print("error-Proxy_2",india_time)
                     try:
                         data=requests.get(x,headers=browser_header,proxies=proxy_3)
                     except:
-                        print("error-Proxy_3")
+                        print("error-Proxy_3",india_time)
                         pass
 
             #data=requests.get(x,headers=browser_header)
