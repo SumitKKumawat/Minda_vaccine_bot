@@ -5,8 +5,6 @@ import datetime
 from requests import sessions
 import pytz
 
-
-
 #proxy = {
 #    "https": "https://14.140.131.82:3128",
 #    "http": "https://14.140.131.82:3128"}
